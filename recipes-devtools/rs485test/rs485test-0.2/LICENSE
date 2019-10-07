@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+<title>LICENSE\rs485test-0.2\rs485test\recipes-devtools - meta-phytec - Yocto meta layer for phytec boards</title>
+<meta name='generator' content='cgit v0.12-5-g23f7'/>
+<meta name='robots' content='index, nofollow'/>
+<link rel='stylesheet' type='text/css' href='/cgit.css'/>
+<link rel='shortcut icon' href='/favicon_phytec.ico'/>
+<link rel='alternate' title='Atom feed' href='https://git.phytec.de/meta-phytec/atom/recipes-devtools/rs485test/rs485test-0.2/LICENSE?h=thud' type='application/atom+xml'/>
+<link rel='vcs-git' href='git://git.phytec.de/meta-phytec' title='meta-phytec Git repository'/>
+<link rel='vcs-git' href='https://git.phytec.de/git/meta-phytec' title='meta-phytec Git repository'/>
+</head>
+<body>
+<div id='cgit'><table id='header'>
+<tr>
+<td class='logo' rowspan='2'><a href='/'><img src='/PhyLogo-135_135.png' alt='cgit logo'/></a></td>
+<td class='main'><a href='/'>index</a> : <a title='meta-phytec' href='/meta-phytec/'>meta-phytec</a></td><td class='form'><form method='get' action=''>
+<select name='h' onchange='this.form.submit();'>
+<option value='1.8.1-phy2-fix'>1.8.1-phy2-fix</option>
+<option value='1.8.1-phy6-fix'>1.8.1-phy6-fix</option>
+<option value='dizzy'>dizzy</option>
+<option value='fido'>fido</option>
+<option value='jethro'>jethro</option>
+<option value='krogoth'>krogoth</option>
+<option value='master'>master</option>
+<option value='morty'>morty</option>
+<option value='pyro'>pyro</option>
+<option value='rocko'>rocko</option>
+<option value='sumo'>sumo</option>
+<option value='thud' selected='selected'>thud</option>
+<option value='warrior'>warrior</option>
+</select> <input type='submit' name='' value='switch'/></form></td></tr>
+<tr><td class='sub'>Yocto meta layer for phytec boards</td><td class='sub right'>tbd</td></tr></table>
+<table class='tabs'><tr><td>
+<a href='/meta-phytec/?h=thud'>summary</a><a href='/meta-phytec/refs/?h=thud'>refs</a><a href='/meta-phytec/log/recipes-devtools/rs485test/rs485test-0.2/LICENSE?h=thud'>log</a><a class='active' href='/meta-phytec/tree/recipes-devtools/rs485test/rs485test-0.2/LICENSE?h=thud'>tree</a><a href='/meta-phytec/commit/recipes-devtools/rs485test/rs485test-0.2/LICENSE?h=thud'>commit</a><a href='/meta-phytec/diff/recipes-devtools/rs485test/rs485test-0.2/LICENSE?h=thud'>diff</a></td><td class='form'><form class='right' method='get' action='/meta-phytec/log/recipes-devtools/rs485test/rs485test-0.2/LICENSE'>
+<input type='hidden' name='h' value='thud'/><select name='qt'>
+<option value='grep'>log msg</option>
+<option value='author'>author</option>
+<option value='committer'>committer</option>
+<option value='range'>range</option>
+</select>
+<input class='txt' type='text' size='10' name='q' value=''/>
+<input type='submit' value='search'/>
+</form>
+</td></tr></table>
+<div class='path'>path: <a href='/meta-phytec/tree/?h=thud'>root</a>/<a href='/meta-phytec/tree/recipes-devtools?h=thud'>recipes-devtools</a>/<a href='/meta-phytec/tree/recipes-devtools/rs485test?h=thud'>rs485test</a>/<a href='/meta-phytec/tree/recipes-devtools/rs485test/rs485test-0.2?h=thud'>rs485test-0.2</a>/<a href='/meta-phytec/tree/recipes-devtools/rs485test/rs485test-0.2/LICENSE?h=thud'>LICENSE</a></div><div class='content'>blob: e28547c13d0e13279c7232f69533505a88fda458 (<a href='/meta-phytec/plain/recipes-devtools/rs485test/rs485test-0.2/LICENSE?h=thud'>plain</a>)
+<table summary='blob content' class='blob'>
+<tr><td class='linenumbers'><pre><a id='n1' href='#n1'>1</a>
+<a id='n2' href='#n2'>2</a>
+<a id='n3' href='#n3'>3</a>
+<a id='n4' href='#n4'>4</a>
+<a id='n5' href='#n5'>5</a>
+<a id='n6' href='#n6'>6</a>
+<a id='n7' href='#n7'>7</a>
+<a id='n8' href='#n8'>8</a>
+<a id='n9' href='#n9'>9</a>
+<a id='n10' href='#n10'>10</a>
+<a id='n11' href='#n11'>11</a>
+<a id='n12' href='#n12'>12</a>
+<a id='n13' href='#n13'>13</a>
+<a id='n14' href='#n14'>14</a>
+<a id='n15' href='#n15'>15</a>
+<a id='n16' href='#n16'>16</a>
+<a id='n17' href='#n17'>17</a>
+<a id='n18' href='#n18'>18</a>
+<a id='n19' href='#n19'>19</a>
+<a id='n20' href='#n20'>20</a>
+<a id='n21' href='#n21'>21</a>
+<a id='n22' href='#n22'>22</a>
+<a id='n23' href='#n23'>23</a>
+<a id='n24' href='#n24'>24</a>
+<a id='n25' href='#n25'>25</a>
+</pre></td>
+<td class='lines'><pre><code>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &quot;Software&quot;), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+--------------------------------------------------------------------------------
+Note:
+Individual files contain the following tag instead of the full license text.
+
+	SPDX-License-Identifier: MIT
+
+This enables machine processing of license information based on the SPDX
+License Identifiers that are here available: http://spdx.org/licenses/
+</code></pre></td></tr></table>
+</div> <!-- class=content -->
+<div class='footer'>generated by <a href='http://git.zx2c4.com/cgit/about/'>cgit v0.12-5-g23f7</a> at 2019-09-24 17:00:39 (GMT)</div>
+</div> <!-- id=cgit -->
+</body>
+</html>
