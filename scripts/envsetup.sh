@@ -18,12 +18,12 @@ else
     _META_LAYER_ROOT=$META_LAYER_ROOT
 fi
 
-
 if [ -z $META_LAYER_BSP ]; then
     _META_LAYER_BSP=layers/meta-phytec
 else
     _META_LAYER_BSP=$META_LAYER_BSP
 fi
+
 
 #----------------------------------------------
 # Set ROOTOE for oe sdk baseline
@@ -456,7 +456,7 @@ eula_check() {
 
     # Make sure machine name is uniq in _META_LAYER_ROOT to avoid detecting wrong EULA file
     if [ "$(echo $machine_file | wc -w)" -gt 1 ]; then
-        echo "[ERROR] More than one $MACHINE found in ${_META_LAYER_ROOT}. Please cleanup/clarify:"
+        echo "[ERROR] More than one $MACHINE found in ${_META_LAYER_BSP}. Please cleanup/clarify:"
         echo "${machine_file#*${ROOTOE}/}"
         echo
         return 1
@@ -736,7 +736,7 @@ EOF
 #
 conf_bblayerconf()
 {
-    local _MACH_CONF=$(find ${ROOTOE}/$_META_LAYER_ROOT/ -type d \( -name '.git' -o -name '.repo' -o -name 'build*' -o -name 'source*' -o -name 'script*' \) -prune -o -type f -name "$MACHINE.conf" | grep "/machine/$MACHINE.conf")
+    local _MACH_CONF=$(find ${ROOTOE}/$_META_LAYER_BSP/ -type d \( -name '.git' -o -name '.repo' -o -name 'build*' -o -name 'source*' -o -name 'script*' \) -prune -o -type f -name "$MACHINE.conf" | grep "/machine/$MACHINE.conf")
 
     if [ -n "${_MACH_CONF}" ]; then
         # Get meta layer root for selected machine file
@@ -766,11 +766,11 @@ EOF
             cat >> conf/bblayers.conf <<EOF
 
 # specific bsp selected
-BBLAYERS =+ "${ROOTOE}/$_META_LAYER_ROOT/$_BSP_LAYER_REQUIRED"
+BBLAYERS =+ "${ROOTOE}/$_META_LAYER_BSP/$_BSP_LAYER_REQUIRED"
 EOF
         fi
     else
-        echo "[WARNING] Not able to find ${MACHINE}.conf file in ${_META_LAYER_ROOT} : bblayer.conf not updated..."
+        echo "[WARNING] Not able to find ${MACHINE}.conf file in ${_META_LAYER_BSP} : bblayer.conf not updated..."
     fi
 }
 
