@@ -2300,10 +2300,10 @@ index 0000000..44d113a
 +};
 diff --git a/arch/arm/boot/dts/phycore-stm32mp1xx-1.dtsi b/arch/arm/boot/dts/phycore-stm32mp1xx-1.dtsi
 new file mode 100644
-index 0000000..66408fd
+index 0000000..cb859bf
 --- /dev/null
 +++ b/arch/arm/boot/dts/phycore-stm32mp1xx-1.dtsi
-@@ -0,0 +1,413 @@
+@@ -0,0 +1,414 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
 +/*
 + * Copyright (C) PHYTEC GmbH 2019 - All Rights Reserved
@@ -2337,8 +2337,9 @@ index 0000000..66408fd
 +                compatible = "audio-graph-card";
 +                label = "STM32MP1-PHYCORE";
 +                routing =
-+			"Playback", "MCLK"; /* Set a route between "MCLK" and "playback" widgets */
-+                dais = <&sai2b_port>;
++			"Playback", "MCLK", /* Set a route between "MCLK" and "playback" widgets */
++			"Capture", "MCLK";
++                dais = <&sai2b_port &sai2a_port>;
 +                status = "okay";
 +        };
 +
@@ -4595,7 +4596,7 @@ index 7b16564..e1d0c24 100644
 +#define DP83867_CLK_O_SEL_OFF			0xFFFFFFFF
  #endif
 diff --git a/sound/soc/codecs/tlv320aic3x.c b/sound/soc/codecs/tlv320aic3x.c
-index 6a271e6..82836b3 100644
+index 6a271e6..f7f25b1 100644
 --- a/sound/soc/codecs/tlv320aic3x.c
 +++ b/sound/soc/codecs/tlv320aic3x.c
 @@ -32,6 +32,7 @@
@@ -4654,7 +4655,29 @@ index 6a271e6..82836b3 100644
  	return 0;
  }
  
-@@ -1846,6 +1862,14 @@ static int aic3x_i2c_probe(struct i2c_client *i2c,
+@@ -1688,6 +1704,13 @@ static void aic3x_remove(struct snd_soc_component *component)
+ 					      &aic3x->disable_nb[i].nb);
+ }
+ 
++static int aic3x_of_xlate_dai_id(struct snd_soc_component *component,
++				   struct device_node *endpoint)
++{
++	/* return dai id 0, whatever the endpoint index */
++	return 0;
++}
++
+ static const struct snd_soc_component_driver soc_component_dev_aic3x = {
+ 	.set_bias_level		= aic3x_set_bias_level,
+ 	.probe			= aic3x_probe,
+@@ -1698,6 +1721,7 @@ static const struct snd_soc_component_driver soc_component_dev_aic3x = {
+ 	.num_dapm_widgets	= ARRAY_SIZE(aic3x_dapm_widgets),
+ 	.dapm_routes		= intercon,
+ 	.num_dapm_routes	= ARRAY_SIZE(intercon),
++	.of_xlate_dai_id	= aic3x_of_xlate_dai_id,
+ 	.use_pmdown_time	= 1,
+ 	.endianness		= 1,
+ 	.non_legacy_dai_naming	= 1,
+@@ -1846,6 +1870,14 @@ static int aic3x_i2c_probe(struct i2c_client *i2c,
  
  	aic3x->model = id->driver_data;
  
